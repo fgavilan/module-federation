@@ -8,8 +8,7 @@ This repository demonstrates how to use **Module Federation** in Angular to spli
 - [Architecture](#architecture)
 - [Setup](#setup)
 - [Running the Application](#running-the-application)
-- [Development Workflow](#development-workflow)
-- [Additional Information](#additional-information)
+- [Building and Deploying](#building-and-deploying)
 
 ## Introduction
 
@@ -29,8 +28,147 @@ The architecture follows the **Micro Front-End** (MFE) pattern, where each proje
 
 ### Project Structure:
 
-/workspace /projects /shell /users /items
-
+```
+📦 
+├─ .editorconfig
+├─ .gitignore
+├─ .vscode
+│  ├─ extensions.json
+│  ├─ launch.json
+│  └─ tasks.json
+├─ README.bak.md
+├─ README.md
+├─ angular.json
+├─ eslint.config.mjs
+├─ package-lock.json
+├─ package.json
+├─ projects
+│  ├─ items
+│  │  ├─ public
+│  │  │  └─ favicon.ico
+│  │  ├─ src
+│  │  │  ├─ app
+│  │  │  │  ├─ app.component.html
+│  │  │  │  ├─ app.component.scss
+│  │  │  │  ├─ app.component.ts
+│  │  │  │  ├─ app.config.ts
+│  │  │  │  ├─ app.routes.ts
+│  │  │  │  ├─ items.types.ts
+│  │  │  │  ├─ items
+│  │  │  │  │  ├─ items-one
+│  │  │  │  │  │  ├─ items-one.component.html
+│  │  │  │  │  │  ├─ items-one.component.scss
+│  │  │  │  │  │  └─ items-one.component.ts
+│  │  │  │  │  ├─ items.component.html
+│  │  │  │  │  ├─ items.component.scss
+│  │  │  │  │  ├─ items.component.ts
+│  │  │  │  │  ├─ items.module.ts
+│  │  │  │  │  └─ page-two
+│  │  │  │  │     ├─ items-two.component.html
+│  │  │  │  │     ├─ items-two.component.scss
+│  │  │  │  │     └─ items-two.component.ts
+│  │  │  │  └─ services
+│  │  │  │     └─ inventory.service.ts
+│  │  │  ├─ assets
+│  │  │  │  └─ data
+│  │  │  │     └─ inventory.json
+│  │  │  ├─ bootstrap.ts
+│  │  │  ├─ environments
+│  │  │  │  └─ environment.ts
+│  │  │  ├─ index.html
+│  │  │  ├─ main.ts
+│  │  │  └─ styles.scss
+│  │  ├─ tsconfig.app.json
+│  │  ├─ tsconfig.spec.json
+│  │  ├─ webpack.config.js
+│  │  └─ webpack.prod.config.js
+│  ├─ shell
+│  │  ├─ public
+│  │  │  └─ favicon.ico
+│  │  ├─ src
+│  │  │  ├─ app
+│  │  │  │  ├─ +about
+│  │  │  │  │  ├─ about.component.html
+│  │  │  │  │  ├─ about.component.scss
+│  │  │  │  │  └─ about.component.ts
+│  │  │  │  ├─ +landing
+│  │  │  │  │  ├─ landing.component.html
+│  │  │  │  │  ├─ landing.component.scss
+│  │  │  │  │  └─ landing.component.ts
+│  │  │  │  ├─ +login
+│  │  │  │  │  ├─ login.component.html
+│  │  │  │  │  ├─ login.component.scss
+│  │  │  │  │  └─ login.component.ts
+│  │  │  │  ├─ app.component.html
+│  │  │  │  ├─ app.component.scss
+│  │  │  │  ├─ app.component.ts
+│  │  │  │  ├─ app.config.ts
+│  │  │  │  ├─ app.routes.ts
+│  │  │  │  ├─ common.types.ts
+│  │  │  │  └─ shared
+│  │  │  │     ├─ components
+│  │  │  │     │  └─ menu
+│  │  │  │     │     ├─ menu.component.html
+│  │  │  │     │     ├─ menu.component.scss
+│  │  │  │     │     └─ menu.component.ts
+│  │  │  │     ├─ guards
+│  │  │  │     │  ├─ auth.guard.ts
+│  │  │  │     │  └─ no-auth.guard.ts
+│  │  │  │     └─ services
+│  │  │  │        ├─ auth.service.ts
+│  │  │  │        └─ menu.service.ts
+│  │  │  ├─ assets
+│  │  │  │  └─ data
+│  │  │  │     ├─ menu.json
+│  │  │  │     └─ users.json
+│  │  │  ├─ bootstrap.ts
+│  │  │  ├─ decl.d.ts
+│  │  │  ├─ environments
+│  │  │  │  └─ environment.ts
+│  │  │  ├─ index.html
+│  │  │  ├─ main.ts
+│  │  │  └─ styles.scss
+│  │  ├─ tsconfig.app.json
+│  │  ├─ tsconfig.spec.json
+│  │  ├─ webpack.config.js
+│  │  └─ webpack.prod.config.js
+│  └─ users
+│     ├─ public
+│     │  └─ favicon.ico
+│     ├─ src
+│     │  ├─ app
+│     │  │  ├─ app.component.html
+│     │  │  ├─ app.component.scss
+│     │  │  ├─ app.component.ts
+│     │  │  ├─ app.config.ts
+│     │  │  ├─ app.routes.ts
+│     │  │  ├─ items
+│     │  │  │  ├─ page-one
+│     │  │  │  │  ├─ users-one.component.html
+│     │  │  │  │  ├─ users-one.component.scss
+│     │  │  │  │  └─ users-one.component.ts
+│     │  │  │  └─ page-two
+│     │  │  │     ├─ users-two.component.html
+│     │  │  │     ├─ users-two.component.scss
+│     │  │  │     └─ users-two.component.ts
+│     │  │  └─ users
+│     │  │     ├─ users.component.html
+│     │  │     ├─ users.component.scss
+│     │  │     ├─ users.component.ts
+│     │  │     └─ users.module.ts
+│     │  ├─ bootstrap.ts
+│     │  ├─ environments
+│     │  │  └─ environment.ts
+│     │  ├─ index.html
+│     │  ├─ main.ts
+│     │  └─ styles.scss
+│     ├─ tsconfig.app.json
+│     ├─ tsconfig.spec.json
+│     ├─ webpack.config.js
+│     └─ webpack.prod.config.js
+├─ tsconfig.json
+└─ tslint.json
+```
 
 ## Setup
 
@@ -42,6 +180,23 @@ The architecture follows the **Micro Front-End** (MFE) pattern, where each proje
 To get started, clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/your-repository/angular-module-federation.git
-cd angular-module-federation
+git clone https://github.com/fgavilan/module-federation.git
+cd module-federation
 npm install
+```
+
+### Running the application:
+
+```
+npm run run:all
+```
+
+This will launch all projects and open browser windows for each. Ensure all of them are running
+After that, App is ready at http://localhost:4200
+
+### Building and Deploying
+```
+npm run build
+```
+We get a folder for each project in dist. Deploy each in your server of choice
+(Deployment instructions may vary depending on server setup)
