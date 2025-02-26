@@ -1,0 +1,41 @@
+[
+  {
+  "link": "about",
+  "name": "About"
+  },
+  {
+    "link": "login",
+    "name": "Login",
+    "auth": "notlogged"
+  },
+  {
+    "link": "users",
+    "name": "Users",
+    "auth": "logged",
+    "children": [
+      {
+        "link": "users/one",
+        "name": "Users One"
+      },
+      {
+        "link": "users/two",
+        "name": "Users Two"
+      }
+    ]
+  },
+  {
+    "link": "items",
+    "name": "Items",
+    "auth": "logged",
+    "children": [
+      {
+        "link": "items/one",
+        "name": "Items One"
+      },
+      {
+        "link": "items/two",
+        "name": "Items Two"
+      }
+    ]
+  }
+]

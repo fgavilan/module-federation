@@ -1,0 +1,11 @@
+<main class="px-3">
+  <h1>Welcome to InvManage - Effortless User & Inventory Control</h1>
+  <p class="lead">Take full control of your users and inventory with InvManage—the smart, secure, and efficient way to manage everything in one place. Track inventory in real time, assign user roles seamlessly, and gain valuable insights to optimize your operations.</p>
+  <p class="lead">
+    @if (!!loggedUser) {
+      <a routerLink="about" class="btn btn-lg btn-light fw-bold border-white bg-white">Get Started</a>
+    } @else {
+      <a routerLink="login" class="btn btn-lg btn-light fw-bold border-white bg-white">Sign In</a>
+    }
+  </p>
+</main>

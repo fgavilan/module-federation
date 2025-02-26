@@ -1,0 +1,17 @@
+<main class="form-signin w-100 m-auto">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div class="form-floating">
+      <input formControlName="email" type="email" class="form-control bg-dark text-white" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div *ngIf="loginError || (!loginForm.valid && loginForm.dirty)" class="text-danger">
+      Valid email is required.
+    </div>
+    <button *ngIf="!isLoading" class="btn btn-light w-100 py-2" type="submit" [disabled]="loginForm.invalid">Sign in</button>
+    <div *ngIf="isLoading" class="spinner-border m-2" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </form>
+</main>

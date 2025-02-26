@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Type</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (user of userList; track user.id) {
+      <tr>
+        <th scope="row">{{ user.id }}</th>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.type | uppercase }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

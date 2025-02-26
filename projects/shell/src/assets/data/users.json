@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "email": "laura.garcia@example.com",
+    "name": "Laura Garcia",
+    "type": "admin"
+  },
+  {
+    "id": 2,
+    "email": "fernandogavilan@gmail.com",
+    "name": "Fernando Gavilan",
+    "type": "user"
+  },
+  {
+    "id": 3,
+    "email": "maria.lopez@example.com",
+    "name": "Maria Lopez",
+    "type": "user"
+  },
+  {
+    "id": 4,
+    "email": "juan.perez@example.com",
+    "name": "Juan Perez",
+    "type": "admin"
+  },
+  {
+    "id": 5,
+    "email": "ana.sanchez@example.com",
+    "name": "Ana Sanchez",
+    "type": "user"
+  },
+  {
+    "id": 6,
+    "email": "david.gomez@example.com",
+    "name": "David Gomez",
+    "type": "user"
+  },
+  {
+    "id": 7,
+    "email": "paula.moreno@example.com",
+    "name": "Paula Moreno",
+    "type": "admin"
+  },
+  {
+    "id": 8,
+    "email": "jorge.diaz@example.com",
+    "name": "Jorge Diaz",
+    "type": "user"
+  },
+  {
+    "id": 9,
+    "email": "lucia.fernandez@example.com",
+    "name": "Lucia Fernandez",
+    "type": "user"
+  },
+  {
+    "id": 10,
+    "email": "miguel.ruiz@example.com",
+    "name": "Miguel Ruiz",
+    "type": "admin"
+  }
+]

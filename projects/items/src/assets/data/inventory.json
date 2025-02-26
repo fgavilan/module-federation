@@ -1,0 +1,42 @@
+[
+  {
+    "icon": "laptop",
+    "name": "Laptop"
+  },
+  {
+    "icon": "phone",
+    "name": "Smartphone"
+  },
+  {
+    "icon": "printer",
+    "name": "Printer"
+  },
+  {
+    "icon": "tv",
+    "name": "Monitor"
+  },
+  {
+    "icon": "tools",
+    "name": "Toolset"
+  },
+  {
+    "icon": "usb-drive",
+    "name": "USB Drive"
+  },
+  {
+    "icon": "server",
+    "name": "Server Rack"
+  },
+  {
+    "icon": "headphones",
+    "name": "Headphones"
+  },
+  {
+    "icon": "camera",
+    "name": "Camera"
+  },
+  {
+    "icon": "battery-charging",
+    "name": "Battery Pack"
+  }
+]

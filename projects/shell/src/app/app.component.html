@@ -1,0 +1,17 @@
+<div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0"><i class="bi bi-boxes"></i> InvManage
+        </h3>
+
+      <app-menu></app-menu>
+    </div>
+  </header>
+  <router-outlet></router-outlet>
+  <footer class="mt-auto text-white-50">
+    @if (!!loggedUser){
+      <span class="m-2">Logged in as {{ loggedUser.name }}</span><a (click)="logout()" class="link-underline">Logout <i class="bi-box-arrow-right"></i></a>
+    }
+  </footer>
+</div>
+

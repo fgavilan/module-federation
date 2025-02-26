@@ -1,59 +1,47 @@
-# ChallengeTest
+# Angular Module Federation Example
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
+This repository demonstrates how to use **Module Federation** in Angular to split a large application into multiple smaller, independent projects. The application is structured with a **shell** project that hosts two other projects: **users** and **items**.
 
-## Development server
+## Table of Contents
 
-To start a local development server, run:
+- [Introduction](#introduction)
+- [Architecture](#architecture)
+- [Setup](#setup)
+- [Running the Application](#running-the-application)
+- [Development Workflow](#development-workflow)
+- [Additional Information](#additional-information)
 
-```bash
-ng serve
-```
+## Introduction
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+This project uses **Angular Module Federation** to enable the sharing of Angular modules and components across multiple applications. The **shell** project serves as the main container, dynamically loading the **users** and **items** modules at runtime.
 
-## Code scaffolding
+### Key Concepts:
+- **Shell Project**: The entry point of the application that hosts the other projects via **Module Federation**.
+- **Users Project**: A micro front-end that contains user-related features and is dynamically loaded by the shell.
+- **Items Project**: Another micro front-end that contains item-related features, also dynamically loaded by the shell.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Architecture
 
-```bash
-ng generate component component-name
-```
+The architecture follows the **Micro Front-End** (MFE) pattern, where each project is developed and deployed independently, yet they are seamlessly integrated at runtime:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- The **shell** project is the container that loads remote modules.
+- The **users** and **items** projects are configured as **remote** applications and exposed to the shell through **Module Federation**.
 
-```bash
-ng generate --help
-```
+### Project Structure:
 
-## Building
+/workspace /projects /shell /users /items
 
-To build the project run:
 
-```bash
-ng build
-```
+## Setup
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Prerequisites:
+- Node.js (version 14.x or higher)
+- npm (or yarn)
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### Install Dependencies:
+To get started, clone the repository and install the dependencies:
 
 ```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+git clone https://github.com/your-repository/angular-module-federation.git
+cd angular-module-federation
+npm install
